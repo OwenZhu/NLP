@@ -20,7 +20,7 @@ class TestRougeN(unittest.TestCase):
         rouge_1 = RougeN(n_gram=1, refs=test_refs)
         self.assertEqual(
             rouge_1.score("Claire had a hot dog as her meal"),
-            2/3
+            1/3
         )
 
     def test_rouge_2(self):
@@ -37,5 +37,5 @@ class TestRougeN(unittest.TestCase):
         rouge_1 = RougeN(n_gram=2, refs=test_refs)
         self.assertEqual(
             rouge_1.score("Claire had a hot dog as her meal"),
-            0.4375
+            7 / 32
         )
