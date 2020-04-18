@@ -24,6 +24,15 @@ class RougeN:
 
     @staticmethod
     def _jackknife_resample(original_set: List[List]) -> List[List[List]]:
+        """jackknife resampling
+        helpful video: https://www.youtube.com/watch?v=p9XPclE7NtA
+
+        Args:
+            original_set (List[List]): original dataset
+
+        Returns:
+            List[List[List]]: the sets after resampling
+        """
         resampled_sets = []
         for i, _ in enumerate(original_set):
             new_set = original_set.copy()
@@ -32,7 +41,7 @@ class RougeN:
         return resampled_sets
 
     def _get_n_gram_count(self, doc: str) -> Dict:
-        n_gram_count: Dict = defaultdict(int)
+        n_gram_count = defaultdict(int)
         token_list = doc.lower().split(" ")
         for n in range(1, self.n_gram + 1):
             end = len(token_list) - n + 1
