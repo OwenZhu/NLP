@@ -33,3 +33,9 @@ steps:
     coverage run -m unittest discover
     coverage html
   displayName: 'test'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: '**/test-*.xml'
+    testRunTitle: 'Publish test results for Python $(python.version)'
