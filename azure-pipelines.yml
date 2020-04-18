@@ -34,8 +34,8 @@ steps:
     coverage html
   displayName: 'test'
 
-- task: PublishTestResults@2
-  condition: succeededOrFailed()
+- task: PublishCodeCoverageResults@1
   inputs:
-    testResultsFiles: '**/test-*.xml'
-    testRunTitle: 'Publish test results for Python $(python.version)'
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/index.html'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/htmlcov'
